@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Blog da Corrida</title>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
+        <link rel="stylesheet" href="assets/css/style.css">
+    </head>
+    <body class="corpo">
+        
+        <div id="corrida-blog">
+        
+            <header>
+            
+                <div class="container">
+
+                    <nav class="navbar">
+
+                        <a href="#" class="text-center logo">
+                            <img src="./assets/img/corre.png" alt="Corredor">
+                            Blog
+                        </a>
+                        <div v-if="isLogged" key="logged" class="login">
+                            <h4>Seja bem-vindo {{ username }}</h4>
+                            <a href="#" v-on:click.prevent="toggleLogin" class="logout bg-danger text-white">Fazer Logout</a>
+                        </div>
+
+                        <a href="#" v-on:click.prevent="toggleLogin" class="login bg-primary text-white" v-else key="notLogged">Fazer login</a>
+
+                    </nav>
+
+                </div>
+
+            </header>
+
+            <section class="posts">
+
+                <div class="container">
+
+                    <div class="row post-item" v-for="post in posts">
+
+                        <div class="col-11">
+
+                            <img :src="post.img" :alt="post.imgTitle">
+                            <h2>{{ post.title }}</h2>
+                            <p>
+                                {{ post.post }}
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <footer>
+                <p class="text-center">Feito por Lucas Ayres </p>
+            </footer>
+
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+        <script>
+            let app= new Vue ({
+                el:'#corrida-blog',
+                data: {
+                    isLogged: false,
+                    username: '',
+                    posts: [{
+                        img: './assets/img/corredores.png',
+                        imgTitle: 'Post 1',
+                        title: 'Corredores de rua',
+                        post: `
+                            A corrida de rua, uma das atividades físicas mais acessíveis e populares, tem conquistado cada vez mais adeptos ao redor do mundo. Este esporte, que pode ser praticado em diversos ambientes urbanos, oferece uma série de benefícios que vão além da simples melhora do condicionamento físico, englobando aspectos sociais, psicológicos e de saúde.
+                        `
+                    }, {
+                        img: './assets/img/aatleta.png',
+                        imgTitle: 'Post 2',
+                        title: 'Seus benefícios',
+                        post: `
+                            A corrida de rua é uma excelente forma de melhorar a saúde cardiovascular. Estudos demonstram que a prática regular de corrida reduz o risco de doenças cardíacas, melhora a circulação sanguínea e auxilia na manutenção de níveis saudáveis de colesterol e pressão arterial. Além disso, a corrida ajuda na regulação do peso corporal, sendo uma atividade eficaz na queima de calorias e na manutenção de um índice de massa corporal (IMC) adequado.
+                            Outro benefício importante da corrida de rua é o impacto positivo na saúde mental. A prática regular de exercício físico está associada à liberação de endorfinas, substâncias químicas no cérebro que promovem sensações de bem-estar e felicidade. Assim, correr pode ajudar a aliviar o estresse, a ansiedade e até mesmo sintomas de depressão. A atividade também melhora a qualidade do sono, contribuindo para um descanso mais reparador.
+                        `
+
+                    }, {
+                        img: './assets/img/cuidado.webp',
+                        imgTitle: 'Post 3',
+                        title: 'Cuidados',
+                        post: `
+                            É fundamental destacar que, para colher os benefícios da corrida de rua, é necessário adotar alguns cuidados. O uso de calçados adequados, a escolha de terrenos apropriados e a realização de alongamentos antes e depois das corridas são práticas essenciais para evitar lesões. Além disso, é importante que a corrida seja inserida em um contexto de atividade física equilibrada, combinando com outras formas de exercício para promover um desenvolvimento corporal harmonioso.
+
+                            Em síntese, a corrida de rua é uma atividade física completa, que contribui significativamente para a saúde física, mental e social. Seu impacto positivo é amplamente reconhecido e, quando praticada de forma correta e segura, pode ser uma aliada poderosa na promoção de um estilo de vida saudável e equilibrado.
+
+
+
+
+
+
+
+                        `
+                    }]
+                },
+                methods: {
+                    toggleLogin() {
+                        this.isLogged = !this.isLogged
+                    }
+                }
+            })
+        </script>
+
+    </body>
+</html>
