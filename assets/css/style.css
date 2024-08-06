@@ -9,7 +9,7 @@ a, a:hover {
 .navbar {
     display: flex;
     justify-content: center;
-    background-color:#64e990;
+    background-color:#64dae9;
     width: 1000px;
     margin-left: 10px;
 }
@@ -46,12 +46,12 @@ a, a:hover {
     position: relative;
     margin-right: 100px;
     text-align:justify;
-    border-bottom: 1px solid orangered;
+    border-bottom: 1px solid rgb(223, 82, 89);
     padding: 20px 0px 10px 10px;
 }
 
 .posts .post-item h2 {
-    background-color:#64e990;
+    background-color:#66a3e9;
     color: #F37520;
     width: 1000px;
 }
